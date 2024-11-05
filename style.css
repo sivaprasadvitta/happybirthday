@@ -1,0 +1,520 @@
+/* Apply Pacifico for the main heading */
+h1 {
+    font-family: 'Pacifico', cursive;
+}
+
+/* Apply Great Vibes for subheadings or romantic phrases */
+h2, .date {
+    font-family: 'Great Vibes', cursive;
+}
+
+/* Use Dancing Script for interactive or playful text */
+p, .content {
+    font-family: 'Dancing Script', cursive;
+}
+
+/* Use Playfair Display for longer texts or descriptions */
+body, .timeline-item {
+    font-family: 'Playfair Display', serif;
+}
+
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+    background-image: url('./assets/images/img7.jpg'); /* Add a love-themed background image */
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+header {
+    padding: 20px;
+    background-color: #ff6b6b;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: headerPulse 2s infinite alternate;
+}
+
+h1 {
+    font-size: 2.5em;
+    animation: fadeIn 2s ease forwards, glow 1.5s infinite alternate;
+    color: #fff;
+}
+
+p {
+    font-size: 1.2em;
+    color: #333;
+    animation: fadeIn 2s ease 0.5s forwards;
+}
+
+/* Confetti Animation */
+@keyframes confettiFall {
+    0% { transform: translateY(-100vh) rotate(0); }
+    100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+.confetti {
+    position: absolute;
+    top: -10%;
+    width: 10px;
+    height: 10px;
+    background: #ff6b6b;
+    opacity: 0.8;
+    animation: confettiFall 4s linear infinite;
+}
+
+.confetti:nth-child(2n) { background: #f5a623; }
+.confetti:nth-child(3n) { background: #7ed321; }
+.confetti:nth-child(4n) { background: #50e3c2; }
+
+/* Timeline Styling */
+.timeline {
+    position: relative;
+    width: 80%;
+    margin: 50px auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: #ff6b6b;
+    transform: translateX(-50%);
+    animation: lineGrow 3s ease-out forwards;
+    box-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 50px 0;
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.timeline-item.left {
+    flex-direction: row-reverse;
+    transform: translateX(-50px);
+}
+
+.timeline-item.right {
+    transform: translateX(50px);
+}
+
+.timeline-item img {
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: zoomIn 1.2s ease-out forwards, imageGlow 1.5s infinite alternate;
+}
+
+.content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 200px;
+    animation: bounceIn 1s ease-out forwards;
+    transition: transform 0.2s;
+}
+
+.content:hover {
+    transform: scale(1.05);
+}
+
+.date {
+    font-weight: bold;
+    color: #ff4d4d;
+    font-size: 1.1em;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes lineGrow {
+    from { height: 0; }
+    to { height: 100%; }
+}
+
+@keyframes slideInLeft {
+    0% { opacity: 0; transform: translateX(-50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    0% { opacity: 0; transform: translateX(50px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #fff, 0 0 20px #ff6b6b, 0 0 30px #ff6b6b; }
+    to { text-shadow: 0 0 20px #ff6b6b, 0 0 40px #ff6b6b, 0 0 50px #ff6b6b; }
+}
+
+@keyframes headerPulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.02); }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    60% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+@keyframes zoomIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes imageGlow {
+    from { box-shadow: 0 0 10px #ff6b6b; }
+    to { box-shadow: 0 0 20px #ff6b6b, 0 0 30px #ff6b6b; }
+}
+
+/* Apply animation classes */
+.left.animate { animation: slideInLeft 1.5s forwards, glow 1.5s infinite alternate; }
+.right.animate { animation: slideInRight 1.5s forwards, glow 1.5s infinite alternate; }
+
+/* Heart Animation */
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-200px); opacity: 0; }
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url('path/to/heart-icon.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0;
+    animation: floatUp 4s infinite;
+}
+
+.heart:nth-child(odd) { animation-duration: 6s; }
+.heart:nth-child(even) { animation-duration: 4s; }
+
+
+/* ////////////////////////////////// */
+/* Scrolling Image Rows */
+.scrolling-images {
+    width: 100%;
+    height: 650px;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+    background: linear-gradient(135deg, #ffe0f7, #ffccff);
+}
+
+.scroll-row {
+    display: flex;
+    white-space: nowrap;
+    gap: 20px;
+    padding: 10px 0;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Scroll direction and speed */
+.left-to-right {
+    animation: scroll-left-to-right 15s linear infinite;
+}
+
+.right-to-left {
+    animation: scroll-right-to-left 18s linear infinite;
+}
+
+.scroll-row img {
+    height: 180px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.scroll-row img:hover {
+    transform: scale(1.1);
+}
+
+/* Keyframes for scrolling animation */
+@keyframes scroll-left-to-right {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(100%); }
+}
+
+@keyframes scroll-right-to-left {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+
+
+/* //////////////////////////////// */
+
+/* Parallax Scrolling Background */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('./assets/images/img7.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-attachment: fixed; /* Locks background to give parallax effect */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    color: #333;
+}
+
+/* Adjust opacity and text-shadow for glow effect */
+header {
+    padding: 20px;
+    background-color: rgba(255, 107, 107, 0.9); /* Semi-transparent background */
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2.5em;
+    animation: fadeIn 2s ease forwards, glow 1.5s infinite alternate;
+    color: #fff;
+}
+
+/* Parallax scroll */
+#parallax-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#parallax-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    background-size: cover;
+    filter: blur(5px); /* Optional: adds subtle blur to background */
+    transform: translateY(-10px); /* Adjusts background scroll rate */
+    z-index: -2;
+    animation: scrollBackground 60s linear infinite; /* Infinite slow scroll */
+}
+
+/* Slow background movement for parallax effect */
+@keyframes scrollBackground {
+    from { transform: translateY(0); }
+    to { transform: translateY(-50px); }
+}
+
+/* Confetti canvas styling for additional effects */
+#confetti-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+}
+
+/* ////////////////// */
+
+
+/* Corner Containers */
+.birthday-corner {
+    position: fixed;
+    bottom: 10px;
+    width: 200px;
+    z-index: 10;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+#birthday-left {
+    left: 10px;
+}
+
+#birthday-right {
+    right: 10px;
+}
+
+/* Happy Birthday Text */
+.happy-birthday {
+    font-size: 1.5em;
+    color: #d32a2a;
+    text-shadow: 0 0 5px #ff6b6b, 0 0 10px #ff6b6b;
+}
+
+/* Balloons and Hearts */
+.balloon, .heart {
+    width: 40px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #ff6b6b;
+    margin: 10px auto;
+    position: relative;
+}
+
+.heart {
+    width: 20px;
+    height: 20px;
+    background-color: #ff4d4d;
+    transform: rotate(-45deg);
+}
+
+.heart::before, .heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ff4d4d;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: 10px;
+    top: 0;
+}
+
+/* /////////////////////////////////// */
+
+/* Birthday Card Container */
+#birthday-card {
+    width: 600px;
+    height: 480px;
+    perspective: 1000px;
+    margin: 50px auto;
+    cursor: pointer;
+}
+
+/* Card Cover */
+.card-cover, .card-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    backface-visibility: hidden;
+    transition: transform 0.8s ease;
+}
+
+/* Card Text Styles */
+.card-cover h2, .card-inner h1 {
+    margin: 0;
+    color: #ff4d4d;
+    font-size: 1.8em;
+    animation: textGlow 1.5s infinite alternate;
+}
+
+.card-inner p {
+    font-size: 1.8em;
+    text-align: center;
+    color:  #c92828;
+}
+
+/* Flip Animation */
+#birthday-card:hover .card-cover {
+    transform: rotateY(-180deg);
+}
+
+#birthday-card:hover .card-inner {
+    transform: rotateY(0deg);
+}
+
+/* Hidden Inner Side */
+.card-inner {
+    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+    color: #ff6b6b;
+    transform: rotateY(180deg);
+    border-radius: 12px;
+}
+
+/* Text Glow Animation */
+@keyframes textGlow {
+    0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff6b6b, 0 0 15px #ff6b6b; }
+    100% { text-shadow: 0 0 10px #ff6b6b, 0 0 20px #ff6b6b, 0 0 30px #ff6b6b; }
+}
+
+
+/* //////////////////////////////// */
+
+/* Center Container for the Queen Image */
+#queen-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    position: relative;
+}
+
+/* Image Frame Styling */
+.image-frame {
+    padding: 20px;
+    width: 600px;
+    border: 8px double #d4af37; /* Gold-colored border */
+    border-radius: 20px;
+    background: linear-gradient(145deg, #ffe8a1, #d4af37);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), inset 0 4px 10px rgba(255, 255, 255, 0.5);
+    position: relative;
+    overflow: hidden;
+    transform: scale(0.9);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Image Styling */
+.queen-image {
+    width: 300px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Frame Hover Effect */
+.image-frame:hover {
+    transform: scale(1);
+}
+
+/* Glowing Border Effect */
+@keyframes glowBorder {
+    0% {
+        box-shadow: 0 0 15px #ffda79, 0 0 25px #ffda79;
+    }
+    50% {
+        box-shadow: 0 0 25px #ffbf00, 0 0 35px #ffbf00;
+    }
+    100% {
+        box-shadow: 0 0 15px #ffda79, 0 0 25px #ffda79;
+    }
+}
+.image-frame {
+    animation: glowBorder 3s ease-in-out infinite;
+}
+
+
